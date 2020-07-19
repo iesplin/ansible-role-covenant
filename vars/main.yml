@@ -1,0 +1,6 @@
+---
+# vars file for ansible-role-covenant
+
+covenant_packages:
+  - dotnet-sdk-3.1
+  - git

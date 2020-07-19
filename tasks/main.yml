@@ -1,0 +1,25 @@
+---
+# tasks file for ansible-role-covenant
+
+- name: Add Microsoft packages repository
+  apt:
+    deb: https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb
+
+- name: Install package dependencies including .Net Core 3.1 SDK
+  apt:
+    name: "{{ covenant_packages }}"
+    state: present
+    update_cache: true
+
+- name: Clone Covenant repository
+  git:
+    repo: https://github.com/cobbr/Covenant.git
+    recursive: true
+    dest: "{{ covenant_base_dir }}"
+  register: clone_covenant
+
+- name: Build Covenant
+  command: dotnet build
+  args:
+    chdir: "{{ covenant_base_dir }}/Covenant"
+  when: clone_covenant.changed

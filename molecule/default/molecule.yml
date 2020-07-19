@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: kali-covenant
+    image: kalilinux/kali-rolling
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      kali-covenant:
+        covenant_base_dir: /opt/Covenant
+verifier:
+  name: ansible
+  options:
+    v: true

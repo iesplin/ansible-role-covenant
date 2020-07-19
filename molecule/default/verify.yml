@@ -1,0 +1,14 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  tasks:
+  - name: 
+    stat:
+      path: "{{ covenant_base_dir }}/Covenant/bin/Debug/netcoreapp3.1"
+    register: covenant_executable
+
+  - name: Example assertion
+    assert:
+      that: covenant_executable.stat.exists

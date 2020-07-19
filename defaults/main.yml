@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-role-covenant
+
+covenant_base_dir: /opt/Covenant

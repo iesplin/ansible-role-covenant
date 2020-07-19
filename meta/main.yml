@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: iesplin
+  description: Ansible role for the Covenant C2 framework
+  license: MIT
+  min_ansible_version: 2.7
+  platforms:
+    - name: Kali
+      versions:
+        - rolling
+  galaxy_tags: []
+
+dependencies: []
